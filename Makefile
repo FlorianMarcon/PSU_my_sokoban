@@ -18,6 +18,8 @@ SRC	=	src/list_storage/list_storage.c		\
 		src/display/display_map.c		\
 		src/display/display_storage.c		\
 		src/win_lose/win.c		\
+		src/win_lose/lose.c		\
+		src/win_lose/condition_win_lose.c	\
 
 SRC_UT	=	tests/nb_lines/test_utils.c		\
 

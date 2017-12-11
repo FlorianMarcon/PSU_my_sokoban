@@ -19,20 +19,16 @@ int	loop_window(char **map, linked_list_t *storage)
 	win = newwin(LINES, COLS, 0, 0);
 	while (var != KEY_DC) {
 		display_map(win, map);
-		if (condition_to_win(map, storage) == 1) {
+		if (condition_win_lose(map, storage) != -1) {
 			endwin();
-			return (0);
-		}
-		if (condition_to_lose(map) == 1) {
-			endwin();
-			return (1);
+			return (condition_win_lose(map, storage));
 		}
 		var = action(win, map);
 		display_storage(map, storage);
 		wrefresh(win);
 	}
 	endwin();
-	return (0);
+	return (2);
 }
 
 int	my_sokoban(char *path)
@@ -40,6 +36,7 @@ int	my_sokoban(char *path)
 	char *str = load_map(path);
 	char **map = stock_in_2d(str);
 	linked_list_t *storage = list_storage(map);
+	int result = loop_window(map, storage);
 
-	return (loop_window(map, storage));
+	return (result);
 }
