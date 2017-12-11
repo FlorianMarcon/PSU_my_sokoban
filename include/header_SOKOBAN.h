@@ -15,6 +15,8 @@ typedef struct position {
 	int y;
 }position_t;
 
+int	condition_to_lose(char **map);
+
 linked_list_t	*list_storage(char **map);
 
 int	condition_to_win(char **map, linked_list_t *storage);

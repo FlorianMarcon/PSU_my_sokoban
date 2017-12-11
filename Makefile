@@ -49,9 +49,9 @@ clean:
 	rm -f src/*.o
 	rm -f src/*#
 	rm -f src/*~
-	rm -f src/win/*.o
-	rm -f src/win/*#
-	rm -f src/win/*~
+	rm -f src/win_lose/*.o
+	rm -f src/win_lose/*#
+	rm -f src/win_lose/*~
 	rm -f src/list_storage/*.o
 	rm -f src/list_storage/*#
 	rm -f src/list_storage/*~

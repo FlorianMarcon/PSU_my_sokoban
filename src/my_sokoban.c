@@ -23,6 +23,10 @@ int	loop_window(char **map, linked_list_t *storage)
 			endwin();
 			return (0);
 		}
+		if (condition_to_lose(map) == 1) {
+			endwin();
+			return (1);
+		}
 		var = action(win, map);
 		display_storage(map, storage);
 		wrefresh(win);
