@@ -12,16 +12,21 @@
 void	move_up(char **map)
 {
 	position_t *position = search_player(map);
+	char letter;
 
 	switch (map[position->y - 1][position->x]) {
 		case ' ': map[position->y - 1][position->x] = 'P';
 			map[position->y][position->x] = ' ';
 			break;
-			case 'X': if (map[position->y - 2][position->x] != '#') {
+		case 'O': map[position->y - 1][position->x] = 'P';
+			map[position->y][position->x] = ' ';
+			break;
+		case 'X': letter = map[position->y - 2][position->x];
+			if (letter == ' ' || letter == 'O') {
 				map[position->y - 2][position->x] = 'X';
 				map[position->y - 1][position->x] = 'P';
 				map[position->y][position->x] = ' ';
-		}
+			}
 	}
 	free (position);
 }
@@ -29,15 +34,20 @@ void	move_up(char **map)
 void	move_down(char **map)
 {
 	position_t *position = search_player(map);
+	char letter;
 
 	switch (map[position->y + 1][position->x]) {
 		case ' ': map[position->y + 1][position->x] = 'P';
 			map[position->y][position->x] = ' ';
 			break;
-		case 'X': if (map[position->y + 2][position->x] != '#') {
-			map[position->y + 2][position->x] = 'X';
-			map[position->y + 1][position->x] = 'P';
+		case 'O': map[position->y + 1][position->x] = 'P';
 			map[position->y][position->x] = ' ';
+			break;
+		case 'X': letter = map[position->y + 2][position->x];
+			if (letter == ' ' || letter == 'O') {
+				map[position->y + 2][position->x] = 'X';
+				map[position->y + 1][position->x] = 'P';
+				map[position->y][position->x] = ' ';
 			}
 			break;
 	}
@@ -47,15 +57,20 @@ void	move_down(char **map)
 void	move_right(char **map)
 {
 	position_t *position = search_player(map);
+	char letter;
 
 	switch (map[position->y][position->x + 1]) {
 		case ' ': map[position->y][position->x + 1] = 'P';
 			map[position->y][position->x] = ' ';
 			break;
-		case 'X': if (map[position->y][position->x + 2] != '#') {
-			map[position->y][position->x + 2] = 'X';
-			map[position->y][position->x + 1] = 'P';
+		case 'O': map[position->y][position->x + 1] = 'P';
 			map[position->y][position->x] = ' ';
+			break;
+		case 'X': letter = map[position->y][position->x + 2];
+			if (letter == ' ' || letter == 'O') {
+				map[position->y][position->x + 2] = 'X';
+				map[position->y][position->x + 1] = 'P';
+				map[position->y][position->x] = ' ';
 			}
 			break;
 	}
@@ -65,15 +80,20 @@ void	move_right(char **map)
 void	move_left(char **map)
 {
 	position_t *position = search_player(map);
+	char letter;
 
 	switch (map[position->y][position->x - 1]) {
 		case ' ': map[position->y][position->x - 1] = 'P';
 			map[position->y][position->x] = ' ';
 			break;
-		case 'X': if (map[position->y][position->x - 2] != '#') {
-			map[position->y][position->x - 2] = 'X';
-			map[position->y][position->x - 1] = 'P';
+		case 'O': map[position->y][position->x - 1] = 'P';
 			map[position->y][position->x] = ' ';
+			break;
+		case 'X': letter = map[position->y][position->x - 2];
+			if (letter == ' ' || letter == 'O') {
+				map[position->y][position->x - 2] = 'X';
+				map[position->y][position->x - 1] = 'P';
+				map[position->y][position->x] = ' ';
 			}
 			break;
 	}

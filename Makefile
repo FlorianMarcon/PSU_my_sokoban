@@ -7,14 +7,16 @@
 
 CC	=	gcc
 
-SRC	=	src/action/action.c		\
-		src/move_player/move_up.c	\
+SRC	=	src/list_storage/list_storage.c		\
+		src/action/action.c		\
+		src/move_player/move.c	\
 		src/check_argu/check_argu.c	\
 		src/load_map/load_map.c		\
 		src/my_sokoban.c		\
 		src/search_player/search_player.c	\
 		src/load_map/stock_in_2d.c		\
-		src/display_map/display_map.c		\
+		src/display/display_map.c		\
+		src/display/display_storage.c		\
 
 SRC_UT	=	tests/nb_lines/test_utils.c		\
 
@@ -46,6 +48,9 @@ clean:
 	rm -f src/*.o
 	rm -f src/*#
 	rm -f src/*~
+	rm -f src/list_storage/*.o
+	rm -f src/list_storage/*#
+	rm -f src/list_storage/*~
 	rm -f src/move_player/*.o
 	rm -f src/move_player/*#
 	rm -f src/move_player/*~
@@ -64,9 +69,9 @@ clean:
 	rm -f src/load_map/*.o
 	rm -f src/load_map/*#
 	rm -f src/load_map/*~
-	rm -f src/display_map/*.o
-	rm -f src/display_map/*~
-	rm -f src/display_map/*#
+	rm -f src/display/*.o
+	rm -f src/display/*~
+	rm -f src/display/*#
 	rm -f tests/nb_lines/*.o
 	rm -f tests/nb_lines/*~
 	rm -f tests/nb_lines/*#

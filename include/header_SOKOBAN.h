@@ -15,6 +15,10 @@ typedef struct position {
 	int y;
 }position_t;
 
+linked_list_t	*list_storage(char **map);
+
+void	display_storage(char **map, linked_list_t *storage);
+
 void	move_up(char **map);
 
 void	move_down(char **map);
