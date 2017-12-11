@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <ncurses.h>
 
-void	loop_window(char **map, linked_list_t *storage)
+int	loop_window(char **map, linked_list_t *storage)
 {
 	WINDOW *win;
 	int var = 0;
@@ -19,11 +19,16 @@ void	loop_window(char **map, linked_list_t *storage)
 	win = newwin(LINES, COLS, 0, 0);
 	while (var != KEY_DC) {
 		display_map(win, map);
+		if (condition_to_win(map, storage) == 1) {
+			endwin();
+			return (0);
+		}
 		var = action(win, map);
 		display_storage(map, storage);
-		wclear(win);
+		wrefresh(win);
 	}
 	endwin();
+	return (0);
 }
 
 int	my_sokoban(char *path)
@@ -32,6 +37,5 @@ int	my_sokoban(char *path)
 	char **map = stock_in_2d(str);
 	linked_list_t *storage = list_storage(map);
 
-	loop_window(map, storage);
-	return (0);
+	return (loop_window(map, storage));
 }

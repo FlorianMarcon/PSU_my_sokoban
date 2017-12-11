@@ -17,6 +17,7 @@ SRC	=	src/list_storage/list_storage.c		\
 		src/load_map/stock_in_2d.c		\
 		src/display/display_map.c		\
 		src/display/display_storage.c		\
+		src/win_lose/win.c		\
 
 SRC_UT	=	tests/nb_lines/test_utils.c		\
 
@@ -48,6 +49,9 @@ clean:
 	rm -f src/*.o
 	rm -f src/*#
 	rm -f src/*~
+	rm -f src/win/*.o
+	rm -f src/win/*#
+	rm -f src/win/*~
 	rm -f src/list_storage/*.o
 	rm -f src/list_storage/*#
 	rm -f src/list_storage/*~

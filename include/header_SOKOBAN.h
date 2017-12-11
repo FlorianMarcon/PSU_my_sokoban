@@ -17,6 +17,8 @@ typedef struct position {
 
 linked_list_t	*list_storage(char **map);
 
+int	condition_to_win(char **map, linked_list_t *storage);
+
 void	display_storage(char **map, linked_list_t *storage);
 
 void	move_up(char **map);
