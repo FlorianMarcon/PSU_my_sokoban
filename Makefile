@@ -7,7 +7,9 @@
 
 CC	=	gcc
 
-SRC	=	src/check_argu/check_argu.c	\
+SRC	=	src/action/action.c		\
+		src/move_player/move_up.c	\
+		src/check_argu/check_argu.c	\
 		src/load_map/load_map.c		\
 		src/my_sokoban.c		\
 		src/search_player/search_player.c	\
@@ -44,6 +46,15 @@ clean:
 	rm -f src/*.o
 	rm -f src/*#
 	rm -f src/*~
+	rm -f src/move_player/*.o
+	rm -f src/move_player/*#
+	rm -f src/move_player/*~
+	rm -f src/action/*.o
+	rm -f src/action/*#
+	rm -f src/action/*~
+	rm -f src/search_player/*.o
+	rm -f src/search_player/*#
+	rm -f src/search_player/*~
 	rm -f src/check_argu/*.o
 	rm -f src/check_argu/*#
 	rm -f src/check_argu/*~
@@ -62,7 +73,7 @@ clean:
 
 fclean:	clean
 	rm $(NAME)
-	make fclean -C.lib/my/
+	make fclean -C./lib/my/
 
 re:	clean	all
 

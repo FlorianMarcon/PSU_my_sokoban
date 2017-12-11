@@ -30,6 +30,7 @@ all:		$(OBJ)
 	ar rc libmy.a $(OBJ)
 
 clean:
+	rm -f libmy.a
 	rm -f *.o
 	rm -f *~
 	rm -f *#

@@ -19,9 +19,8 @@ void	loop_window(char **map)
 	win = newwin(LINES, COLS, 0, 0);
 	while (var != KEY_DC) {
 		display_map(win, map);
-		keypad(win, 1);
-		var = wgetch(win);
-		wrefresh(win);
+		var = action(win, map);
+		wclear(win);
 	}
 	endwin();
 }

@@ -10,6 +10,21 @@
 #ifndef SOKOBAN_
 #define SOKOBAN_
 
+typedef struct position {
+	int x;
+	int y;
+}position_t;
+
+void	move_up(char **map);
+
+void	move_down(char **map);
+
+void	move_right(char **map);
+
+void	move_left(char **map);
+
+int	action(WINDOW *win, char **map);
+
 void	display_map(WINDOW *window, char **map);
 
 char	**stock_in_2d(char *str);
@@ -18,7 +33,7 @@ int	my_sokoban(char *path);
 
 char	*load_map(char *path);
 
-int	search_player(char *map);
+position_t	*search_player(char **map);
 
 void	check_argu(char *str);
 

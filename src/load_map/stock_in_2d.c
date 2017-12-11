@@ -46,13 +46,12 @@ char	**stock_in_2d(char *str)
 		exit (84);
 	while (str[i] != '\0') {
 		size = size_line(&str[i]);
-		if ((map[lines] = malloc(sizeof(char) * (size + 1))) == NULL)
+		if ((map[lines] = malloc(sizeof(char) * (size + 2))) == NULL)
 			exit (84);
 		my_strncpy(map[lines], &str[i], size);
 		i = i + size + 1;
 		lines++;
 	}
 	map[i] = NULL;
-	free (str);
 	return (map);
 }
