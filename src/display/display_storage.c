@@ -16,6 +16,6 @@ void	display_storage(char **map, linked_list_t *storage)
 		position = (position_t *)storage->data;
 		if (map[position->y][position->x] == ' ')
 			map[position->y][position->x] = 'O';
-			storage = storage->next;
+		storage = storage->next;
 		}
 }

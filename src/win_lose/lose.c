@@ -35,7 +35,7 @@ int	analyse_boxe(char **map, int x, int y)
 
 	result += analyse_right_left(map, x, y);
 	result += analyse_top_bottom(map, x, y);
-	if (result >= 2)
+	if (result >= 3)
 		return (1);
 	else
 		return (0);
