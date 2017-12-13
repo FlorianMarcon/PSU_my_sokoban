@@ -17,7 +17,7 @@ int	loop_window(char **map, linked_list_t *storage)
 
 	initscr();
 	win = newwin(LINES, COLS, 0, 0);
-	while (var != KEY_DC) {
+	while (var != 32) {
 		display_map(win, map);
 		if (condition_win_lose(map, storage) != -1) {
 			endwin();

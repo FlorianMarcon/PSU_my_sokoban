@@ -15,6 +15,14 @@ typedef struct position {
 	int y;
 }position_t;
 
+int	analyse_right_bottom(char **map, int x, int y);
+
+int	analyse_right_top(char **map, int x, int y);
+
+int	analyse_left_top(char **map, int x, int y);
+
+int	analyse_left_bottom(char **map, int x, int y);
+
 int	condition_to_lose(char **map);
 
 int	condition_win_lose(char **map, linked_list_t *storage);

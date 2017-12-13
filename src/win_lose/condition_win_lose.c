@@ -12,7 +12,7 @@ int	condition_win_lose(char **map, linked_list_t *storage)
 {
 	if (condition_to_win(map, storage) == 1)
 		return (0);
-//	if (condition_to_lose(map) == 1)
-//		return (1);
+	if (condition_to_lose(map) == 1)
+		return (1);
 	return (-1);
 }
