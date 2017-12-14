@@ -15,6 +15,7 @@ typedef struct position {
 	int y;
 }position_t;
 
+
 int	analyse_right_bottom(char **map, int x, int y);
 
 int	analyse_right_top(char **map, int x, int y);
@@ -22,6 +23,10 @@ int	analyse_right_top(char **map, int x, int y);
 int	analyse_left_top(char **map, int x, int y);
 
 int	analyse_left_bottom(char **map, int x, int y);
+
+int	analyse_nb_boxe(char **map);
+
+int	analyse_nb_boxe_blocked(char **map);
 
 int	condition_to_lose(char **map, int size_hall);
 

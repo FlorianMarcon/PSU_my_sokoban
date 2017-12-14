@@ -8,7 +8,7 @@
 CC	=	gcc
 
 SRC	=	src/list_storage/list_storage.c		\
-		src/action/action.c		\
+		src/action/key_action.c		\
 		src/move_player/move.c	\
 		src/check/check_argu.c	\
 		src/check/check_map.c	\
@@ -22,6 +22,7 @@ SRC	=	src/list_storage/list_storage.c		\
 		src/win_lose/lose.c		\
 		src/win_lose/condition_win_lose.c	\
 		src/win_lose/analyse_lose.c		\
+		src/win_lose/analyse_nb_boxe.c		\
 
 SRC_UT	=	tests/search_player/tests_utils.c		\
 

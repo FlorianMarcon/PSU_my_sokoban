@@ -33,9 +33,8 @@ char	*read_map(int fd)
 		exit (84);
 	if (read(fd, map, 4096) < 0)
 		exit (84);
-	while (read(fd, buffer, 4096) > 0) {
+	while (read(fd, buffer, 4096) > 0)
 		map = my_strcat(map, buffer);
-	}
 	return (map);
 }
 char	*load_map(char *path)

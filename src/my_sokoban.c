@@ -9,6 +9,7 @@
 #include "header_SOKOBAN.h"
 #include <stdlib.h>
 #include <ncurses.h>
+#include <stdio.h>
 
 int	loop_window(char **map, linked_list_t *storage)
 {

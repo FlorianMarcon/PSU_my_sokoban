@@ -8,39 +8,10 @@
 #include "my.h"
 #include "header_SOKOBAN.h"
 
-int	analyse_boxe(char **map, int x, int y)
-{
-	int result = 0;
-
-	result += analyse_right_top(map, x, y);
-	result += analyse_right_bottom(map, x, y);
-	result += analyse_left_top(map, x, y);
-	result += analyse_left_bottom(map, x, y);
-	if (result > 0)
-		return (1);
-	else
-		return (0);
-}
-
 int	condition_to_lose(char **map, int size_hall)
 {
-	int x = 0;
-	int y = 0;
-	int nb_boxes = 0;
-	int nb_boxes_stoped = 0;
-
-	while (map[y] != NULL) {
-		x = 0;
-		while (map[y][x] != '\0') {
-			if (map[y][x] == 'X') {
-				nb_boxes++;
-				if (analyse_boxe(map, x, y) == 1)
-					nb_boxes_stoped++;
-			}
-			x++;
-		}
-		y++;
-	}
+	int nb_boxes = analyse_nb_boxe(map);
+	int nb_boxes_stoped = analyse_nb_boxe_blocked(map);
 	if (nb_boxes - nb_boxes_stoped < size_hall)
 		return (1);
 	return (0);
