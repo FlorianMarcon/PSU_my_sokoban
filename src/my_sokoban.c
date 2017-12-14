@@ -35,8 +35,13 @@ int	my_sokoban(char *path)
 {
 	char *str = load_map(path);
 	char **map = stock_in_2d(str);
-	linked_list_t *storage = list_storage(map);
-	int result = loop_window(map, storage);
+	linked_list_t *storage = NULL;
+	int result = 0;
 
+	if (check_map(str) == 0) {
+		storage = list_storage(map);
+		result = loop_window(map, storage);
+	} else
+		result = 84;
 	return (result);
 }

@@ -23,7 +23,7 @@ int	analyse_left_top(char **map, int x, int y);
 
 int	analyse_left_bottom(char **map, int x, int y);
 
-int	condition_to_lose(char **map);
+int	condition_to_lose(char **map, int size_hall);
 
 int	condition_win_lose(char **map, linked_list_t *storage);
 
@@ -53,6 +53,8 @@ char	*load_map(char *path);
 
 position_t	*search_player(char **map);
 
-void	check_argu(char *str);
+int	check_map(char *map);
+
+void	check_argu(char *str, int ac);
 
 #endif

@@ -22,7 +22,7 @@ int	analyse_boxe(char **map, int x, int y)
 		return (0);
 }
 
-int	condition_to_lose(char **map)
+int	condition_to_lose(char **map, int size_hall)
 {
 	int x = 0;
 	int y = 0;
@@ -41,7 +41,7 @@ int	condition_to_lose(char **map)
 		}
 		y++;
 	}
-	if (nb_boxes == nb_boxes_stoped)
+	if (nb_boxes - nb_boxes_stoped < size_hall)
 		return (1);
 	return (0);
 }

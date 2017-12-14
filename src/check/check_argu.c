@@ -24,10 +24,11 @@ void	display_no_argu(void)
 	exit (84);
 }
 
-void	check_argu(char *str)
+void	check_argu(char *str, int ac)
 {
-	if (my_strcmp(str, "-h") == 0)
-		display_help();
-	if (str == NULL)
+	if (ac != 2)
 		display_no_argu();
+	else
+		if (my_strcmp(str, "-h") == 0)
+			display_help();
 }

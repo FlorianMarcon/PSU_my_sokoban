@@ -10,7 +10,7 @@
 
 int	main(int ac, char **av)
 {
-	check_argu(av[1]);
+	check_argu(av[1], ac);
 	if (ac == 2) {
 		return (my_sokoban(av[1]));
 	}

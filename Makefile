@@ -10,7 +10,8 @@ CC	=	gcc
 SRC	=	src/list_storage/list_storage.c		\
 		src/action/action.c		\
 		src/move_player/move.c	\
-		src/check_argu/check_argu.c	\
+		src/check/check_argu.c	\
+		src/check/check_map.c	\
 		src/load_map/load_map.c		\
 		src/my_sokoban.c		\
 		src/search_player/search_player.c	\
@@ -22,7 +23,7 @@ SRC	=	src/list_storage/list_storage.c		\
 		src/win_lose/condition_win_lose.c	\
 		src/win_lose/analyse_lose.c		\
 
-SRC_UT	=	tests/nb_lines/test_utils.c		\
+SRC_UT	=	tests/search_player/tests_utils.c		\
 
 SRC_MAIN	=	src/main.c	\
 
@@ -36,7 +37,7 @@ NAME	=	my_sokoban
 
 CFLAGS	=	-W -Wall -Wextra -Werror -I./include
 
-LDFLAGS	=	-lncurses -lcriterion
+LDFLAGS	=	-lncurses -lcriterion --coverage
 
 LIB	=	-L./lib/my/ -lmy
 
@@ -46,42 +47,9 @@ all:	$(OBJ_MAIN) $(OBJ)
 
 clean:
 	make clean -C./lib/my/
-	rm -f *.o
-	rm -f *#
-	rm -f *~
-	rm -f src/*.o
-	rm -f src/*#
-	rm -f src/*~
-	rm -f src/win_lose/*.o
-	rm -f src/win_lose/*#
-	rm -f src/win_lose/*~
-	rm -f src/list_storage/*.o
-	rm -f src/list_storage/*#
-	rm -f src/list_storage/*~
-	rm -f src/move_player/*.o
-	rm -f src/move_player/*#
-	rm -f src/move_player/*~
-	rm -f src/action/*.o
-	rm -f src/action/*#
-	rm -f src/action/*~
-	rm -f src/search_player/*.o
-	rm -f src/search_player/*#
-	rm -f src/search_player/*~
-	rm -f src/check_argu/*.o
-	rm -f src/check_argu/*#
-	rm -f src/check_argu/*~
-	rm -f src/search_player/*.o
-	rm -f src/search_player/*#
-	rm -f src/search_player/*~
-	rm -f src/load_map/*.o
-	rm -f src/load_map/*#
-	rm -f src/load_map/*~
-	rm -f src/display/*.o
-	rm -f src/display/*~
-	rm -f src/display/*#
-	rm -f tests/nb_lines/*.o
-	rm -f tests/nb_lines/*~
-	rm -f tests/nb_lines/*#
+	rm -f $(OBJ_MAIN)
+	rm -f $(OBJ)
+	rm -f $(OBJ_UT)
 
 fclean:	clean
 	rm $(NAME)
@@ -90,4 +58,6 @@ fclean:	clean
 re:	clean	all
 
 tests_run:	$(OBJ) $(OBJ_UT)
-	$(CC) -o units $(LDFLAGS) $(LIB)
+	make -C./lib/my
+	$(CC) -o units $(OBJ) $(OBJ_UT) $(LDFLAGS) $(LIB)
+	`./units`
