@@ -28,7 +28,7 @@ int	analyse_nb_boxe(char **map);
 
 int	analyse_nb_boxe_blocked(char **map);
 
-int	condition_to_lose(char **map, int size_hall);
+int	condition_to_lose(char **map);
 
 int	condition_win_lose(char **map, linked_list_t *storage);
 
